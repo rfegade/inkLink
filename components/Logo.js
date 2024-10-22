@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  ImageBackground,
-  SafeAreaView,
-  ScrollView,
-} from "react-native";
+import { View, Text } from "react-native";
 import SvgLogo from "../assets/logo.svg";
 
 export default function Logo() {
@@ -13,12 +7,10 @@ export default function Logo() {
     <View
       style={{
         display: "flex",
-        width: 430,
         gap: 16,
         alignItems: "center",
         flexWrap: "nowrap",
         position: "relative",
-        marginTop: 300,
         marginBottom: 0,
         margin: "auto",
       }}
@@ -36,19 +28,18 @@ export default function Logo() {
       <Text
         style={{
           height: 24,
-          alignSelf: "stretch",
-          flexShrink: 0,
-          flexBasis: "auto",
+          //   alignSelf: "stretch",
+          //   flexShrink: 0,
+          //   flexBasis: "auto",
           fontFamily: "Poppins",
           fontSize: 16,
           fontWeight: "400",
           lineHeight: 24,
           color: "#757575",
-          position: "relative",
+          //   position: "relative",
           textAlign: "center",
-          zIndex: 2,
+          //   zIndex: 2,
         }}
-        numberOfLines={1}
       >
         manage your schedule w/o managing
       </Text>

@@ -1,20 +1,24 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Dimensions, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import SvgGoogle from "../assets/icons/google.svg";
 import SvgApple from "../assets/icons/apple.svg";
 import SvgFacebook from "../assets/icons/facebook.svg";
 
+const windowWidth = Dimensions.get("window").width;
+
 export default function SocialLogin() {
+  const navigation = useNavigation(); // Get the navigation object
+
   return (
     <View
       style={{
         display: "flex",
         flexDirection: "column",
         gap: 16,
-        alignItems: "center",
+        justifyContent: "flex-end",
+        alignItems: "flex-start",
         flexWrap: "nowrap",
-        position: "relative",
-        marginTop: 0,
         marginRight: "auto",
         marginBottom: 0,
         marginLeft: "auto",
@@ -41,126 +45,46 @@ export default function SocialLogin() {
         style={{
           display: "flex",
           flexDirection: "row",
+          justifyContent: "space-between",
           gap: 16,
-          alignItems: "center",
-          alignSelf: "stretch",
-          flexShrink: 0,
-          flexWrap: "nowrap",
-          position: "relative",
-          zIndex: 1,
         }}
       >
-        <View
+        <TouchableOpacity
+          onPress={() => navigation.navigate("ArtistsList")}
           style={{
-            width: 122,
+            flex: 1, // Let the button size auto-adjust
             height: 52,
-            flexShrink: 0,
             backgroundColor: "#ffffff",
-            borderTopLeftRadius: 4,
-            borderTopRightRadius: 4,
-            borderBottomRightRadius: 4,
-            borderBottomLeftRadius: 4,
-            position: "relative",
-            overflow: "hidden",
-            zIndex: 2,
+            borderRadius: 4,
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          <View
-            style={{
-              width: 24,
-              height: 24,
-              position: "relative",
-              overflow: "hidden",
-              zIndex: 3,
-              marginTop: 14,
-              marginRight: 0,
-              marginBottom: 0,
-              marginLeft: 49,
-            }}
-          >
-            <SvgGoogle
-              width={"100%"}
-              height={"100%"}
-              style={{
-                position: "absolute",
-                top: 0,
-                left: "0%",
-                zIndex: 4,
-              }}
-            />
-          </View>
+          <SvgGoogle width={24} height={24} />
+        </TouchableOpacity>
+        <View
+          style={{
+            flex: 1,
+            height: 52,
+            backgroundColor: "#ffffff",
+            borderRadius: 4,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <SvgApple width={24} height={24} />
         </View>
         <View
           style={{
-            width: 122,
+            flex: 1,
             height: 52,
-            flexShrink: 0,
             backgroundColor: "#ffffff",
-            borderTopLeftRadius: 4,
-            borderTopRightRadius: 4,
-            borderBottomRightRadius: 4,
-            borderBottomLeftRadius: 4,
-            position: "relative",
-            overflow: "hidden",
-            zIndex: 5,
+            borderRadius: 4,
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          <View
-            style={{
-              width: 24,
-              height: 24,
-              position: "relative",
-              overflow: "hidden",
-              zIndex: 6,
-              marginTop: 14,
-              marginRight: 0,
-              marginBottom: 0,
-              marginLeft: 49,
-            }}
-          >
-            <SvgApple
-              width={20.216}
-              height={24}
-              style={{
-                position: "relative",
-                zIndex: 7,
-                marginTop: 0,
-                marginRight: 0,
-                marginBottom: 0,
-                marginLeft: 2,
-              }}
-            />
-          </View>
-        </View>
-        <View
-          style={{
-            width: 122,
-            height: 52,
-            flexShrink: 0,
-            backgroundColor: "#ffffff",
-            borderTopLeftRadius: 4,
-            borderTopRightRadius: 4,
-            borderBottomRightRadius: 4,
-            borderBottomLeftRadius: 4,
-            position: "relative",
-            overflow: "hidden",
-            zIndex: 8,
-          }}
-        >
-          <SvgFacebook
-            width={24}
-            height={24}
-            style={{
-              position: "relative",
-              zIndex: 10,
-              marginLeft: 5.621,
-              width: 24,
-              height: 24,
-              overflow: "hidden",
-              marginTop: 14,
-              marginLeft: 49,
-            }}
-          />
+          <SvgFacebook width={24} height={24} />
         </View>
       </View>
     </View>

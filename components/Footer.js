@@ -12,48 +12,35 @@ export default function Footer() {
         // paddingBottom: 2,
         // paddingLeft: 4,
         // gap: 8,
-        // alignItems: "center",
-        // flexWrap: "nowrap",
-        // position: "absolute",
-        // bottom: 0,
-        // left: 0,
-        // right: 0,
-        // zIndex: 3,
-
-        paddingTop: 2,
-        paddingRight: 4,
-        paddingBottom: 2,
-        paddingLeft: 4,
-        gap: 8,
         alignItems: "center",
         flexWrap: "nowrap",
-        position: "absolute", // Footer is absolutely positioned
-        bottom: 0, // Sticks to the bottom
+        position: "absolute",
+        bottom: 0,
         left: 0,
         right: 0,
-        zIndex: 3,
+        // zIndex: 3,
       }}
     >
       <Text
         style={{
-          height: 21,
-          flexShrink: 0,
-          flexBasis: "auto",
+          //   height: 21,
+          //   flexShrink: 0,
+          //   flexBasis: "auto",
           fontFamily: "Poppins",
           fontSize: 14,
           fontWeight: "400",
           lineHeight: 21,
           color: "#616161",
-          position: "relative",
+          //   position: "relative",
           textAlign: "center",
-          zIndex: 4,
+          //   zIndex: 4,
         }}
         numberOfLines={1}
       >
         Crafted with{" "}
         <SvgHeart width={16} height={17.307} style={{ marginRight: 3 }} /> from
         ink and needles, for art to{" "}
-        <SvgInfinity width={16} height={16} style={{ marginLeft: 10 }} />.
+        <SvgInfinity width={16} height={16} style={{ marginLeft: 5 }} />.
       </Text>
     </View>
   );

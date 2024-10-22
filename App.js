@@ -5,6 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Logo from "./components/Logo";
 import LandingScreen from "./screens/LandingScreen";
 import LoginScreen from "./screens/LoginScreen";
+import ArtistsList from "./screens/ArtistsList";
 
 const Stack = createStackNavigator();
 
@@ -14,6 +15,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="LandingScreen">
         <Stack.Screen name="LandingScreen" component={LandingScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
+        <Stack.Screen name="ArtistsList" component={ArtistsList} />
       </Stack.Navigator>
     </NavigationContainer>
     // <View style={styles.container}>
