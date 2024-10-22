@@ -2,9 +2,9 @@ import React from "react";
 import { View, SafeAreaView, ScrollView } from "react-native";
 import Logo from "../components/Logo";
 import Footer from "../components/Footer";
-import LandingScreenRoleCard from "../components/LandingScreenRoleCard";
+import SocialLogin from "../components/SocialLogin";
 
-export default function LandingScreen() {
+export default function LoginScreen() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#F5F5F5" }}>
       <View style={{ flex: 1, position: "relative" }}>
@@ -24,7 +24,7 @@ export default function LandingScreen() {
             }}
           >
             <Logo />
-            <LandingScreenRoleCard />
+            <SocialLogin />
           </View>
         </ScrollView>
         <Footer />

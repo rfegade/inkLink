@@ -7,8 +7,19 @@ export default function Footer() {
   return (
     <View
       style={{
-        width: 430,
-        height: 21,
+        // paddingTop: 2,
+        // paddingRight: 4,
+        // paddingBottom: 2,
+        // paddingLeft: 4,
+        // gap: 8,
+        // alignItems: "center",
+        // flexWrap: "nowrap",
+        // position: "absolute",
+        // bottom: 0,
+        // left: 0,
+        // right: 0,
+        // zIndex: 3,
+
         paddingTop: 2,
         paddingRight: 4,
         paddingBottom: 2,
@@ -16,9 +27,11 @@ export default function Footer() {
         gap: 8,
         alignItems: "center",
         flexWrap: "nowrap",
-        position: "relative",
+        position: "absolute", // Footer is absolutely positioned
+        bottom: 0, // Sticks to the bottom
+        left: 0,
+        right: 0,
         zIndex: 3,
-        marginTop: 240,
       }}
     >
       <Text

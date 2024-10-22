@@ -1,9 +1,12 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import SvgStudio from "../assets/icons/studio.svg";
 import SvgPenTool from "../assets/icons/pentool.svg";
+import LoginScreen from "../screens/LoginScreen";
 
 export default function LandingScreenRoleCard() {
+  const navigation = useNavigation(); // Get the navigation object
   return (
     <View
       style={{
@@ -21,7 +24,8 @@ export default function LandingScreenRoleCard() {
         marginBottom: 0,
       }}
     >
-      <View
+      <TouchableOpacity
+        onPress={() => navigation.navigate("LoginScreen")}
         style={{
           display: "flex",
           width: 138,
@@ -73,7 +77,7 @@ export default function LandingScreenRoleCard() {
         >
           Studio
         </Text>
-      </View>
+      </TouchableOpacity>
       <Text
         style={{
           display: "flex",
