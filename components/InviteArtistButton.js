@@ -1,14 +1,18 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 export default function InviteArtistButton() {
+  const navigation = useNavigation(); // test
   return (
     <View style={styles.buttonContainer}>
-      <View style={styles.inviteButton}>
+      <TouchableOpacity style={styles.inviteButton}
+      onPress={() => navigation.navigate("ArtistsInvite")} //test
+      >
         <Text style={styles.buttonText} numberOfLines={1}>
           Invite Artist
         </Text>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 }
