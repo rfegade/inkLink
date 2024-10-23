@@ -8,6 +8,7 @@ import LoginScreen from "./screens/LoginScreen";
 import ArtistsList from "./screens/ArtistsList";
 import SharingOptions from "./components/SharingOptions";
 import CloseModal from "./components/CloseModal";
+import StudioProfile from "./screens/StudioProfile";
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ export default function App() {
         <Stack.Screen name="ArtistsList" component={ArtistsList} />
         <Stack.Screen name="SharingOptions" component={SharingOptions} />
         <Stack.Screen name="CloseModal" component={CloseModal} />
+        <Stack.Screen name="StudioProfile" component={StudioProfile} />
       </Stack.Navigator>
     </NavigationContainer>
     // <View style={styles.container}>

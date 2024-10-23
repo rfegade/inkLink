@@ -37,19 +37,18 @@ export default function ArtistCard() {
                 Caligraphy, Blackwork, Traditional Tattoos, Black and Grey
                 Tattoo Style
               </Text>
-              <TouchableOpacity onPress={() => setCloseModalVisible(true)}>
-                <SvgClose
-                  width="24"
-                  height="24"
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: "90%", // Positioning based on percentage
-                    overflow: "hidden",
-                    zIndex: 23,
-                  }}
-                />
-              </TouchableOpacity>
+              <View
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: "90%", // Positioning based on percentage
+                  overflow: "hidden",
+                }}
+              >
+                <TouchableOpacity onPress={() => setCloseModalVisible(true)}>
+                  <SvgClose width="24" height="24" />
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
 
@@ -72,7 +71,7 @@ export default function ArtistCard() {
       <Modal
         visible={closeModalVisible}
         transparent={true}
-        animationType="slide"
+        animationType="fade"
         onRequestClose={() => setCloseModalVisible(false)}
       >
         <View style={styles.overlay}>

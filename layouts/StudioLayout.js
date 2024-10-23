@@ -6,9 +6,14 @@ import {
   SafeAreaView,
   ScrollView,
   StyleSheet,
+  TouchableOpacity,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import StudioProfile from "../screens/StudioProfile";
 
 export default function StudioLayout({ children }) {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -22,13 +27,16 @@ export default function StudioLayout({ children }) {
                 Artists
               </Text>
             </View>
-            <View style={styles.imageContainer}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("StudioProfile")}
+              style={styles.imageContainer}
+            >
               <ImageBackground
                 style={styles.imageBackground}
                 source={require("../assets/studioprofile.png")}
                 resizeMode="cover"
               />
-            </View>
+            </TouchableOpacity>
           </View>
           {children}
         </View>
