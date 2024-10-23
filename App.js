@@ -6,6 +6,7 @@ import Logo from "./components/Logo";
 import LandingScreen from "./screens/LandingScreen";
 import LoginScreen from "./screens/LoginScreen";
 import ArtistsList from "./screens/ArtistsList";
+import SharingOptions from "./components/SharingOptions";
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,7 @@ export default function App() {
         <Stack.Screen name="LandingScreen" component={LandingScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="ArtistsList" component={ArtistsList} />
+        <Stack.Screen name="SharingOptions" component={SharingOptions} />
       </Stack.Navigator>
     </NavigationContainer>
     // <View style={styles.container}>

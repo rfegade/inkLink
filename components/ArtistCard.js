@@ -1,7 +1,19 @@
-import React from "react";
-import { View, Text, ImageBackground, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  ImageBackground,
+  StyleSheet,
+  TouchableOpacity,
+  Modal,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import SharingOptions from "./SharingOptions";
+import AvailabilityDays from "./AvailabilityDays";
 
 export default function ArtistCard() {
+  const navigation = useNavigation();
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
@@ -48,40 +60,38 @@ export default function ArtistCard() {
           </View>
 
           {/* Availability Calendar */}
-          <View style={styles.calendarContainer}>
-            {["M", "T", "W", "T", "F", "S"].map((day, index) => (
-              <View
-                key={index}
-                style={{
-                  display: "flex",
-                  width: 32,
-                  height: 32,
-                  gap: 2,
-                  justifyContent: "center",
-                  alignItems: "center",
-                  flexShrink: 0,
-                  flexWrap: "nowrap",
-                  backgroundColor: index % 2 === 0 ? "#e5601e" : "#9e9e9e",
-                  borderRadius: 16,
-                  position: "relative",
-                  zIndex: 26 + index,
-                }}
-              >
-                <Text style={styles.days} numberOfLines={1}>
-                  {day}
-                </Text>
-              </View>
-            ))}
-          </View>
+          <AvailabilityDays />
         </View>
 
         {/* Share Availability */}
-        <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          onPress={() => setModalVisible(true)}
+          style={styles.buttonContainer}
+        >
           <Text style={styles.button} numberOfLines={1}>
             Share Schedule
           </Text>
-        </View>
+        </TouchableOpacity>
       </View>
+
+      {/* Sharing Options Modal */}
+      <Modal
+        visible={modalVisible}
+        transparent={true}
+        animationType="slide"
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <View style={styles.overlay}>
+          {/* Touchable area to close the modal */}
+          <TouchableOpacity
+            style={styles.overlayBackground}
+            onPress={() => setModalVisible(false)}
+          />
+          <View style={styles.modalContent}>
+            <SharingOptions />
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 }
@@ -117,12 +127,10 @@ const styles = StyleSheet.create({
     flexShrink: 0,
     flexWrap: "nowrap",
     backgroundColor: "#ffffff",
-    borderTopLeftRadius: 4,
-    borderTopRightRadius: 4,
+    borderTopLeftRadius: 6,
+    borderTopRightRadius: 6,
     borderBottomRightRadius: 0,
     borderBottomLeftRadius: 0,
-    borderTopWidth: 1,
-    borderTopColor: "#e0e0e0",
     position: "relative",
     zIndex: 17,
   },
@@ -171,28 +179,6 @@ const styles = StyleSheet.create({
     color: "#757575",
     textAlign: "left",
   },
-  calendarContainer: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexShrink: 0,
-    flexWrap: "nowrap",
-    position: "relative",
-    zIndex: 25,
-    width: "100%", // Full width
-  },
-  days: {
-    height: 24,
-    alignSelf: "stretch",
-    flexShrink: 0,
-    fontFamily: "Poppins",
-    fontSize: 16,
-    fontWeight: "600",
-    lineHeight: 24,
-    color: "#f9f9f9",
-    textAlign: "center",
-  },
   buttonContainer: {
     display: "flex",
     paddingVertical: 16,
@@ -206,6 +192,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     borderTopWidth: 1,
     borderTopColor: "#e0e0e0",
+    borderBottomWidth: 1,
+    borderBottomColor: "#e0e0e0",
     position: "relative",
     zIndex: 38,
   },
@@ -219,5 +207,26 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     color: "#0078fb",
     textAlign: "center",
+  },
+  overlay: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent black background
+  },
+  overlayBackground: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  modalContent: {
+    width: "80%", // Adjust based on your needs
+    padding: 20,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
