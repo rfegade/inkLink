@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  ImageBackground,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-} from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 export default function InviteArtistButton() {
   return (

@@ -10,10 +10,14 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import SharingOptions from "./SharingOptions";
 import AvailabilityDays from "./AvailabilityDays";
+import SvgClose from "../assets/icons/close.svg";
+import CloseModal from "./CloseModal";
 
 export default function ArtistCard() {
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
+  const [closeModalVisible, setCloseModalVisible] = useState(false);
+
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
@@ -33,29 +37,19 @@ export default function ArtistCard() {
                 Caligraphy, Blackwork, Traditional Tattoos, Black and Grey
                 Tattoo Style
               </Text>
-              {/* <View
-                style={{
-                  width: 24,
-                  height: 24,
-                  position: "absolute",
-                  top: 0,
-                  left: "90%", // Positioning based on percentage
-                  overflow: "hidden",
-                  zIndex: 23,
-                }}
-              >
-                <ImageBackground
+              <TouchableOpacity onPress={() => setCloseModalVisible(true)}>
+                <SvgClose
+                  width="24"
+                  height="24"
                   style={{
-                    width: 20,
-                    height: 20,
-                    position: "relative",
-                    zIndex: 24,
-                    marginTop: 2,
-                    marginLeft: 2,
+                    position: "absolute",
+                    top: 0,
+                    left: "90%", // Positioning based on percentage
+                    overflow: "hidden",
+                    zIndex: 23,
                   }}
-                  // source={require("./assets/images/946095dd-1d64-4874-bf62-a630f272257a.png")}
                 />
-              </View> */}
+              </TouchableOpacity>
             </View>
           </View>
 
@@ -74,6 +68,23 @@ export default function ArtistCard() {
         </TouchableOpacity>
       </View>
 
+      {/* Close Button Modal */}
+      <Modal
+        visible={closeModalVisible}
+        transparent={true}
+        animationType="slide"
+        onRequestClose={() => setCloseModalVisible(false)}
+      >
+        <View style={styles.overlay}>
+          {/* Touchable area to close the modal */}
+          <TouchableOpacity
+            style={styles.overlayBackground}
+            onPress={() => setCloseModalVisible(false)}
+          />
+          <CloseModal />
+        </View>
+      </Modal>
+
       {/* Sharing Options Modal */}
       <Modal
         visible={modalVisible}
@@ -87,9 +98,7 @@ export default function ArtistCard() {
             style={styles.overlayBackground}
             onPress={() => setModalVisible(false)}
           />
-          <View style={styles.modalContent}>
-            <SharingOptions />
-          </View>
+          <SharingOptions />
         </View>
       </Modal>
     </View>
