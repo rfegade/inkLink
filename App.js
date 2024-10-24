@@ -1,8 +1,6 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import Logo from "./components/Logo";
 import LandingScreen from "./screens/LandingScreen";
 import LoginScreen from "./screens/LoginScreen";
 import ArtistsList from "./screens/ArtistsList";
@@ -24,10 +22,6 @@ export default function App() {
         <Stack.Screen name="StudioProfile" component={StudioProfile} />
       </Stack.Navigator>
     </NavigationContainer>
-    // <View style={styles.container}>
-    //   <Text>Hello World!!</Text>
-    //   <LandingScreen />
-    // </View>
   );
 }
 
