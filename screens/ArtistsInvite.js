@@ -1,5 +1,5 @@
 
-import React from 'react';
+/* import React from 'react';
 //import LinearGradient from 'react-native-linear-gradient';
 
 import {
@@ -50,7 +50,7 @@ export default function ArtistInvite() {
               marginLeft: 0,
             }}
           >
-            <View
+           { <View
               style={{
                 display: 'flex',
                 width: 430,
@@ -162,7 +162,7 @@ export default function ArtistInvite() {
                   />
                 </View>
               </View>
-            </View>
+            </View> }
             <View
               style={{
                 display: 'flex',
@@ -190,7 +190,7 @@ export default function ArtistInvite() {
                   zIndex: 10,
                 }}
               >
-                <View
+                { <View
                   style={{
                     width: 24,
                     height: 24,
@@ -213,7 +213,7 @@ export default function ArtistInvite() {
                     }}
                     //source={require('./assets/images/7fb93adb-67d5-4161-9c20-2ab2c1a149ec.png')}
                   />
-                </View>
+                </View> }
               </View>
               <View
                 style={{
@@ -513,7 +513,7 @@ export default function ArtistInvite() {
                 </Text>
               </View>
             </View>
-            <View
+            {<View
               style={{
                 width: 24,
                 height: 24,
@@ -538,6 +538,58 @@ export default function ArtistInvite() {
                 }}
                 //source={require('./assets/images/35ed9442-ece1-44bc-a890-d17788863c23.png')}
               />
+            </View> }
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+} */
+
+  import React from 'react';
+import {
+  View,
+  Text,
+  ImageBackground,
+  SafeAreaView,
+  ScrollView,
+  Dimensions,
+  StyleSheet,
+TextInput
+} from 'react-native';
+
+const { width } = Dimensions.get('window'); // Get the device width
+
+export default function ArtistInvite() {
+  return (
+    <SafeAreaView>
+      <ScrollView contentInsetAdjustmentBehavior="automatic">
+        <View style={styles.container}>
+          <View style={styles.headerContainer}>
+          
+            <View style={styles.titleContainer}>
+              <View style={styles.backIconContainer}></View>
+              <View style={styles.titleTextContainer}>
+                <Text style={styles.titleText}>Invite Artist</Text>
+              </View>
+              <View style={styles.profileImageContainer}>
+                <ImageBackground source={require("../assets/studioprofile.png")}  style={styles.profileImage} />
+              </View>
+            </View>
+          </View>
+
+          <View style={styles.formContainer}>
+            <View style={styles.inputGroup}>
+              <Text style={styles.inputLabel}>Profit Sharing %</Text>
+              <View style={styles.inputField}>
+                <Text style={styles.placeholderText}>enter percentage value</Text>
+              </View>
+            </View>
+            <View style={styles.inputGroup}>
+              <Text style={styles.inputLabel}>Email of the Artist</Text>
+              <View style={styles.inputField}>
+                <Text style={styles.placeholderText}>enter email id</Text>
+              </View>
             </View>
           </View>
         </View>
@@ -545,3 +597,114 @@ export default function ArtistInvite() {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    alignItems: 'center',
+    width: '100%',
+    height: 932,
+    backgroundColor: '#f9f9f9',
+    position: 'relative',
+    overflow: 'hidden',
+  },
+  headerContainer: {
+    width: '100%',
+    paddingVertical: 16,
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+  },
+/*   header: {
+    width: '100%',
+    paddingVertical: 16,
+    paddingHorizontal: 24,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  headerText: {
+    fontFamily: 'SF Pro Text',
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#000000',
+    textAlign: 'center',
+  }, */
+  iconContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  icon: {
+    width: 20, // Example for icon, you can replace with ImageBackground or Image
+    height: 20,
+    backgroundColor: '#e0e0e0',
+    borderRadius: 10,
+    marginLeft: 5,
+  },
+  titleContainer: {
+    width: '90%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  backIconContainer: {
+    width: 24,
+    height: 24,
+    backgroundColor: '#e0e0e0',
+    borderRadius: 12,
+  },
+  titleTextContainer: {
+    alignItems: 'center',
+  },
+  titleText: {
+    fontFamily: 'Poppins',
+    fontSize: 20,
+    fontWeight: '500',
+    color: '#414141',
+  },
+  profileImageContainer: {
+    width: 40,
+    height: 40,
+    overflow: 'hidden',
+  },
+  formContainer: {
+    width: '100%',
+    backgroundColor: '#ffffff',
+    borderRadius: 8,
+    paddingHorizontal: 16,
+    padding: 16,
+    marginTop: 16,
+  },
+  inputGroup: {
+    marginBottom: 16,
+  },
+  inputLabel: {
+    fontFamily: 'Poppins',
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#757575',
+  },
+  inputField: {
+    borderTopWidth: 1,
+    borderTopColor: '#e0e0e0',
+    paddingVertical: 8,
+    marginTop: 8,
+  },
+  placeholderText: {
+    fontFamily: 'Poppins',
+    fontSize: 18,
+    fontWeight: '400',
+    color: '#bdbdbd',
+  },
+  profileImage: {
+    width:40,height:40},
+  addIconContainer: {
+    width: 24,
+    height: 24,
+    position: 'absolute',
+    top: 133,
+    right: 16,
+    backgroundColor: '#e0e0e0',
+    borderRadius: 12,
+  },
+});
